@@ -20,7 +20,7 @@ cd opencv && mkdir build && cd build
 cmake .. -D WITH_GSTREAMER=ON -D PYTHON3_EXECUTABLE=/usr/bin/python3 -D BUILD_opencv_python3=ON
 ```
 
-ensure in the cmake output you see that it is building python3 bindings and it is building g streamer
+ensure in the cmake output you see that it is building g streamer, python bindings not needed for this stuff.
 ```
 --   Video I/O:
 --     FFMPEG:                      YES
@@ -116,3 +116,15 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
     ! rtph264depay ! h264parse ! avdec_h264 ! videoconvert ! autovideosink
   ```
 - If the image appears grayscale, ensure the pipeline forces `format=BGR` before `appsink` as shown above.
+
+## pingviewer
+
+```
+sudo apt install libqt5charts5-dev qtdeclarative5-dev qtquickcontrols2-5-dev libqt5serialport5-dev libqt5svg5-dev qml-module-qtquick-* qml-module-qtmultimedia
+git clone https://github.com/bluerobotics/ping-viewer.git --recurse-submodules
+cd ping-viewer
+mkdir build
+cd build
+cmake ..
+make
+```
